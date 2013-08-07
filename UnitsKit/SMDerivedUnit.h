@@ -1,8 +1,8 @@
 //
-//  SMDetailViewController.m
-//  UnitsKit Example
+//  SMDerivedUnit.h
+//  UnitsKit
 //
-//  Created by Steve Moser on 6/29/13.
+//  Created by Steve Moser on 4/14/13.
 //  Copyright (c) 2013 Steve Moser (http://stevemoser.org)
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -23,46 +23,22 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
 
-#import "SMDetailViewController.h"
+#import <Foundation/Foundation.h>
 
-@interface SMDetailViewController ()
-- (void)configureView;
-@end
+#import "SMUnit.h"
+@interface SMDerivedUnit : SMUnit <SMUnit,NSCopying>
 
-@implementation SMDetailViewController
 
-#pragma mark - Managing the detail item
+@property (nonatomic, assign) SMDerivedUnit *fundamental;
 
-- (void)setDetailItem:(id)newDetailItem
-{
-    if (_detailItem != newDetailItem) {
-        _detailItem = newDetailItem;
-        
-        // Update the view.
-        [self configureView];
-    }
-}
+@property (nonatomic, strong) NSDictionary  *baseUnitsWithDimensionExponents;
 
-- (void)configureView
-{
-    // Update the user interface for the detail item.
++ (SMDerivedUnit *)scaledUnitFromUnit:(SMDerivedUnit *)unit name:(NSString *)name symbol:(NSString *)symbol scale:(double)scale staticRational:(NSInteger)staticRational;
 
-    if (self.detailItem) {
-        self.detailDescriptionLabel.text = [self.detailItem description];
-    }
-}
+- (BOOL)isEqual:(id)other;
+- (BOOL)isCommensurableToDerivedUnit:(id)other;
 
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
-    [self configureView];
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
+- (NSDictionary *)dimensionsWithDimensionExponents;
+- (NSDictionary *)dimensionsWithBaseUnits;
 
 @end

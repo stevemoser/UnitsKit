@@ -1,8 +1,8 @@
 //
-//  SMDetailViewController.m
-//  UnitsKit Example
+//  SMUnit.m
+//  UnitsKit
 //
-//  Created by Steve Moser on 6/29/13.
+//  Created by Steve Moser on 6/17/13.
 //  Copyright (c) 2013 Steve Moser (http://stevemoser.org)
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -23,46 +23,32 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
 
-#import "SMDetailViewController.h"
+#import "SMUnit.h"
 
-@interface SMDetailViewController ()
-- (void)configureView;
-@end
+@implementation SMUnit
 
-@implementation SMDetailViewController
-
-#pragma mark - Managing the detail item
-
-- (void)setDetailItem:(id)newDetailItem
+- (id)init
 {
-    if (_detailItem != newDetailItem) {
-        _detailItem = newDetailItem;
-        
-        // Update the view.
-        [self configureView];
+    self = [super init];
+    if (self) {
+        _staticRational = 0;
     }
+    
+    return self;
 }
 
-- (void)configureView
+- (NSString *)identifier
 {
-    // Update the user interface for the detail item.
+    return [_system stringByAppendingString:_name];
+}
 
-    if (self.detailItem) {
-        self.detailDescriptionLabel.text = [self.detailItem description];
+- (NSString *)fullName
+{
+    if (_fullName) {
+        return _fullName;
     }
-}
-
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
-    [self configureView];
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    
+    return [NSString stringWithFormat:@"%@ %@",_system,_name];
 }
 
 @end

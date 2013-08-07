@@ -1,8 +1,8 @@
 //
-//  SMDetailViewController.m
-//  UnitsKit Example
+//  SMQuantity.h
+//  UnitsKit
 //
-//  Created by Steve Moser on 6/29/13.
+//  Created by Steve Moser on 4/14/13.
 //  Copyright (c) 2013 Steve Moser (http://stevemoser.org)
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -23,46 +23,16 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
 
-#import "SMDetailViewController.h"
+#import <Foundation/Foundation.h>
 
-@interface SMDetailViewController ()
-- (void)configureView;
-@end
+#import "SMDerivedUnit.h"
 
-@implementation SMDetailViewController
+@interface SMQuantity : NSObject
+@property (nonatomic, strong) NSNumber *value;
+@property (nonatomic, strong) SMDerivedUnit *unit;
 
-#pragma mark - Managing the detail item
++ (SMQuantity *)quantityWithValue:(NSNumber *)value unit:(SMDerivedUnit *)unit;
 
-- (void)setDetailItem:(id)newDetailItem
-{
-    if (_detailItem != newDetailItem) {
-        _detailItem = newDetailItem;
-        
-        // Update the view.
-        [self configureView];
-    }
-}
-
-- (void)configureView
-{
-    // Update the user interface for the detail item.
-
-    if (self.detailItem) {
-        self.detailDescriptionLabel.text = [self.detailItem description];
-    }
-}
-
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
-    [self configureView];
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
+- (BOOL)isEqualToQuantity:(id)other;
+- (NSComparisonResult)compare:(SMQuantity *)otherObject;
 @end

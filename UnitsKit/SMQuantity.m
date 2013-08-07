@@ -1,8 +1,8 @@
 //
-//  SMDetailViewController.m
-//  UnitsKit Example
+//  SMQuantity.m
+//  UnitsKit
 //
-//  Created by Steve Moser on 6/29/13.
+//  Created by Steve Moser on 4/14/13.
 //  Copyright (c) 2013 Steve Moser (http://stevemoser.org)
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -23,46 +23,49 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
 
-#import "SMDetailViewController.h"
+#import "SMQuantity.h"
 
-@interface SMDetailViewController ()
-- (void)configureView;
-@end
+@implementation SMQuantity
 
-@implementation SMDetailViewController
-
-#pragma mark - Managing the detail item
-
-- (void)setDetailItem:(id)newDetailItem
++ (SMQuantity *)quantityWithValue:(NSNumber *)value unit:(SMDerivedUnit *)unit;
 {
-    if (_detailItem != newDetailItem) {
-        _detailItem = newDetailItem;
-        
-        // Update the view.
-        [self configureView];
+    SMQuantity *quantity = [[SMQuantity alloc] init];
+    [quantity setValue:value];
+    [quantity setUnit:unit];
+    
+    return quantity;
+}
+
+- (id)init
+{
+    self = [super init];
+    if (self) {
+        _unit = [[SMDerivedUnit alloc] init];
     }
+    
+    return self;
 }
 
-- (void)configureView
-{
-    // Update the user interface for the detail item.
+- (NSString *) description {
+	return [NSString stringWithFormat:@"%@ %@",self.value.description,self.unit.description];
+}
 
-    if (self.detailItem) {
-        self.detailDescriptionLabel.text = [self.detailItem description];
+- (BOOL)isEqualToQuantity:(id)other
+{
+    return ([other isKindOfClass: [SMQuantity class]] &&
+            [[(SMQuantity *)other value] isEqualToNumber:_value] &&
+            [[(SMQuantity *)other unit] isEqual:_unit] );
+}
+
+- (NSComparisonResult)compare:(SMQuantity *)otherObject {
+    if(![otherObject isKindOfClass:[SMQuantity class]]) return NSOrderedSame;
+    
+    if (![otherObject.unit isEqual:_unit]) {
+        return NSOrderedSame;
     }
-}
-
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
-    [self configureView];
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    NSComparisonResult result = [_value compare:otherObject.value];
+    
+    return result;
 }
 
 @end

@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8732DB0C17B28684000E6DE5 /* SMBaseUnit.m in Sources */ = {isa = PBXBuildFile; fileRef = 8732DAFF17B28684000E6DE5 /* SMBaseUnit.m */; };
+		8732DB0D17B28684000E6DE5 /* SMConversionFactor.m in Sources */ = {isa = PBXBuildFile; fileRef = 8732DB0117B28684000E6DE5 /* SMConversionFactor.m */; };
+		8732DB0E17B28684000E6DE5 /* SMDerivedUnit.m in Sources */ = {isa = PBXBuildFile; fileRef = 8732DB0317B28684000E6DE5 /* SMDerivedUnit.m */; };
+		8732DB0F17B28684000E6DE5 /* SMQuantity.m in Sources */ = {isa = PBXBuildFile; fileRef = 8732DB0517B28684000E6DE5 /* SMQuantity.m */; };
+		8732DB1017B28684000E6DE5 /* SMQuantityEvaluator.m in Sources */ = {isa = PBXBuildFile; fileRef = 8732DB0717B28684000E6DE5 /* SMQuantityEvaluator.m */; };
+		8732DB1117B28684000E6DE5 /* SMQuantityFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 8732DB0917B28684000E6DE5 /* SMQuantityFormatter.m */; };
+		8732DB1217B28684000E6DE5 /* SMUnit.m in Sources */ = {isa = PBXBuildFile; fileRef = 8732DB0B17B28684000E6DE5 /* SMUnit.m */; };
 		87DA33A6177F4E0900886499 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87DA33A5177F4E0900886499 /* UIKit.framework */; };
 		87DA33A8177F4E0900886499 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87DA33A7177F4E0900886499 /* Foundation.framework */; };
 		87DA33AA177F4E0900886499 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87DA33A9177F4E0900886499 /* CoreGraphics.framework */; };
@@ -24,6 +31,12 @@
 		87DA33CF177F4E0900886499 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87DA33A7177F4E0900886499 /* Foundation.framework */; };
 		87DA33D7177F4E0900886499 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 87DA33D5177F4E0900886499 /* InfoPlist.strings */; };
 		87DA33DA177F4E0900886499 /* UnitsKit_ExampleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 87DA33D9177F4E0900886499 /* UnitsKit_ExampleTests.m */; };
+		87F64B9617918E8E002446D7 /* SMQuantityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 87F64B9517918E8E002446D7 /* SMQuantityViewController.m */; };
+		87F64B9917918E9F002446D7 /* SMUnitConverterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 87F64B9817918E9F002446D7 /* SMUnitConverterViewController.m */; };
+		87F64B9C17918EB6002446D7 /* SMDimensionalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 87F64B9B17918EB6002446D7 /* SMDimensionalViewController.m */; };
+		87F64BA517932B8D002446D7 /* SMQuantityFormatterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 87F64BA417932B8D002446D7 /* SMQuantityFormatterTests.m */; };
+		87F64BAB1798AFDD002446D7 /* SMQuantityConversionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 87F64BAA1798AFDD002446D7 /* SMQuantityConversionTests.m */; };
+		87F64BB1179C62D4002446D7 /* SMQuantityEvaluatorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 87F64BB0179C62D4002446D7 /* SMQuantityEvaluatorTests.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,6 +50,20 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8732DAFE17B28684000E6DE5 /* SMBaseUnit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMBaseUnit.h; sourceTree = "<group>"; };
+		8732DAFF17B28684000E6DE5 /* SMBaseUnit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMBaseUnit.m; sourceTree = "<group>"; };
+		8732DB0017B28684000E6DE5 /* SMConversionFactor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMConversionFactor.h; sourceTree = "<group>"; };
+		8732DB0117B28684000E6DE5 /* SMConversionFactor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMConversionFactor.m; sourceTree = "<group>"; };
+		8732DB0217B28684000E6DE5 /* SMDerivedUnit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMDerivedUnit.h; sourceTree = "<group>"; };
+		8732DB0317B28684000E6DE5 /* SMDerivedUnit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMDerivedUnit.m; sourceTree = "<group>"; };
+		8732DB0417B28684000E6DE5 /* SMQuantity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMQuantity.h; sourceTree = "<group>"; };
+		8732DB0517B28684000E6DE5 /* SMQuantity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMQuantity.m; sourceTree = "<group>"; };
+		8732DB0617B28684000E6DE5 /* SMQuantityEvaluator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMQuantityEvaluator.h; sourceTree = "<group>"; };
+		8732DB0717B28684000E6DE5 /* SMQuantityEvaluator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMQuantityEvaluator.m; sourceTree = "<group>"; };
+		8732DB0817B28684000E6DE5 /* SMQuantityFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMQuantityFormatter.h; sourceTree = "<group>"; };
+		8732DB0917B28684000E6DE5 /* SMQuantityFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMQuantityFormatter.m; sourceTree = "<group>"; };
+		8732DB0A17B28684000E6DE5 /* SMUnit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMUnit.h; sourceTree = "<group>"; };
+		8732DB0B17B28684000E6DE5 /* SMUnit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMUnit.m; sourceTree = "<group>"; };
 		87DA33A2177F4E0900886499 /* UnitsKit Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "UnitsKit Example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		87DA33A5177F4E0900886499 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		87DA33A7177F4E0900886499 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -61,6 +88,18 @@
 		87DA33D6177F4E0900886499 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		87DA33D8177F4E0900886499 /* UnitsKit_ExampleTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UnitsKit_ExampleTests.h; sourceTree = "<group>"; };
 		87DA33D9177F4E0900886499 /* UnitsKit_ExampleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UnitsKit_ExampleTests.m; sourceTree = "<group>"; };
+		87F64B9417918E8E002446D7 /* SMQuantityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMQuantityViewController.h; sourceTree = "<group>"; };
+		87F64B9517918E8E002446D7 /* SMQuantityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMQuantityViewController.m; sourceTree = "<group>"; };
+		87F64B9717918E9F002446D7 /* SMUnitConverterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMUnitConverterViewController.h; sourceTree = "<group>"; };
+		87F64B9817918E9F002446D7 /* SMUnitConverterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMUnitConverterViewController.m; sourceTree = "<group>"; };
+		87F64B9A17918EB6002446D7 /* SMDimensionalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMDimensionalViewController.h; sourceTree = "<group>"; };
+		87F64B9B17918EB6002446D7 /* SMDimensionalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMDimensionalViewController.m; sourceTree = "<group>"; };
+		87F64BA317932B8D002446D7 /* SMQuantityFormatterTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMQuantityFormatterTests.h; sourceTree = "<group>"; };
+		87F64BA417932B8D002446D7 /* SMQuantityFormatterTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMQuantityFormatterTests.m; sourceTree = "<group>"; };
+		87F64BA91798AFDD002446D7 /* SMQuantityConversionTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMQuantityConversionTests.h; sourceTree = "<group>"; };
+		87F64BAA1798AFDD002446D7 /* SMQuantityConversionTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMQuantityConversionTests.m; sourceTree = "<group>"; };
+		87F64BAF179C62D4002446D7 /* SMQuantityEvaluatorTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMQuantityEvaluatorTests.h; sourceTree = "<group>"; };
+		87F64BB0179C62D4002446D7 /* SMQuantityEvaluatorTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMQuantityEvaluatorTests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,9 +126,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8732DAFD17B28684000E6DE5 /* UnitsKit */ = {
+			isa = PBXGroup;
+			children = (
+				8732DAFE17B28684000E6DE5 /* SMBaseUnit.h */,
+				8732DAFF17B28684000E6DE5 /* SMBaseUnit.m */,
+				8732DB0017B28684000E6DE5 /* SMConversionFactor.h */,
+				8732DB0117B28684000E6DE5 /* SMConversionFactor.m */,
+				8732DB0217B28684000E6DE5 /* SMDerivedUnit.h */,
+				8732DB0317B28684000E6DE5 /* SMDerivedUnit.m */,
+				8732DB0417B28684000E6DE5 /* SMQuantity.h */,
+				8732DB0517B28684000E6DE5 /* SMQuantity.m */,
+				8732DB0617B28684000E6DE5 /* SMQuantityEvaluator.h */,
+				8732DB0717B28684000E6DE5 /* SMQuantityEvaluator.m */,
+				8732DB0817B28684000E6DE5 /* SMQuantityFormatter.h */,
+				8732DB0917B28684000E6DE5 /* SMQuantityFormatter.m */,
+				8732DB0A17B28684000E6DE5 /* SMUnit.h */,
+				8732DB0B17B28684000E6DE5 /* SMUnit.m */,
+			);
+			path = UnitsKit;
+			sourceTree = "<group>";
+		};
 		87DA3399177F4E0900886499 = {
 			isa = PBXGroup;
 			children = (
+				8732DAFD17B28684000E6DE5 /* UnitsKit */,
 				87DA33AB177F4E0900886499 /* UnitsKit Example */,
 				87DA33D2177F4E0900886499 /* UnitsKit ExampleTests */,
 				87DA33A4177F4E0900886499 /* Frameworks */,
@@ -120,6 +181,7 @@
 		87DA33AB177F4E0900886499 /* UnitsKit Example */ = {
 			isa = PBXGroup;
 			children = (
+				87F64B9317918E58002446D7 /* DetailViewControllers */,
 				87DA33B4177F4E0900886499 /* SMAppDelegate.h */,
 				87DA33B5177F4E0900886499 /* SMAppDelegate.m */,
 				87DA33BD177F4E0900886499 /* MainStoryboard.storyboard */,
@@ -152,6 +214,12 @@
 				87DA33D8177F4E0900886499 /* UnitsKit_ExampleTests.h */,
 				87DA33D9177F4E0900886499 /* UnitsKit_ExampleTests.m */,
 				87DA33D3177F4E0900886499 /* Supporting Files */,
+				87F64BA317932B8D002446D7 /* SMQuantityFormatterTests.h */,
+				87F64BA417932B8D002446D7 /* SMQuantityFormatterTests.m */,
+				87F64BA91798AFDD002446D7 /* SMQuantityConversionTests.h */,
+				87F64BAA1798AFDD002446D7 /* SMQuantityConversionTests.m */,
+				87F64BAF179C62D4002446D7 /* SMQuantityEvaluatorTests.h */,
+				87F64BB0179C62D4002446D7 /* SMQuantityEvaluatorTests.m */,
 			);
 			path = "UnitsKit ExampleTests";
 			sourceTree = "<group>";
@@ -163,6 +231,19 @@
 				87DA33D5177F4E0900886499 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		87F64B9317918E58002446D7 /* DetailViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				87F64B9417918E8E002446D7 /* SMQuantityViewController.h */,
+				87F64B9517918E8E002446D7 /* SMQuantityViewController.m */,
+				87F64B9717918E9F002446D7 /* SMUnitConverterViewController.h */,
+				87F64B9817918E9F002446D7 /* SMUnitConverterViewController.m */,
+				87F64B9A17918EB6002446D7 /* SMDimensionalViewController.h */,
+				87F64B9B17918EB6002446D7 /* SMDimensionalViewController.m */,
+			);
+			name = DetailViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -279,6 +360,16 @@
 				87DA33B6177F4E0900886499 /* SMAppDelegate.m in Sources */,
 				87DA33C2177F4E0900886499 /* SMMasterViewController.m in Sources */,
 				87DA33C5177F4E0900886499 /* SMDetailViewController.m in Sources */,
+				87F64B9617918E8E002446D7 /* SMQuantityViewController.m in Sources */,
+				87F64B9917918E9F002446D7 /* SMUnitConverterViewController.m in Sources */,
+				87F64B9C17918EB6002446D7 /* SMDimensionalViewController.m in Sources */,
+				8732DB0C17B28684000E6DE5 /* SMBaseUnit.m in Sources */,
+				8732DB0D17B28684000E6DE5 /* SMConversionFactor.m in Sources */,
+				8732DB0E17B28684000E6DE5 /* SMDerivedUnit.m in Sources */,
+				8732DB0F17B28684000E6DE5 /* SMQuantity.m in Sources */,
+				8732DB1017B28684000E6DE5 /* SMQuantityEvaluator.m in Sources */,
+				8732DB1117B28684000E6DE5 /* SMQuantityFormatter.m in Sources */,
+				8732DB1217B28684000E6DE5 /* SMUnit.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -287,6 +378,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				87DA33DA177F4E0900886499 /* UnitsKit_ExampleTests.m in Sources */,
+				87F64BA517932B8D002446D7 /* SMQuantityFormatterTests.m in Sources */,
+				87F64BAB1798AFDD002446D7 /* SMQuantityConversionTests.m in Sources */,
+				87F64BB1179C62D4002446D7 /* SMQuantityEvaluatorTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -459,6 +553,7 @@
 				87DA33DF177F4E0900886499 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		87DA33E0177F4E0900886499 /* Build configuration list for PBXNativeTarget "UnitsKit ExampleTests" */ = {
 			isa = XCConfigurationList;
@@ -467,6 +562,7 @@
 				87DA33E2177F4E0900886499 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
