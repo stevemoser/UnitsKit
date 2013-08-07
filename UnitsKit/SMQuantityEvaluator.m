@@ -907,7 +907,7 @@ static SMQuantityEvaluator * _sharedEvaluator = nil;
     return resultDimensionExponents;
 }
 
-- (SMQuantity *)evaluateQuantity:(SMQuantity *)firstQuantity withQuanity:(SMQuantity *)secondQuantity usingOperator:(NSString *)operatorName
+- (SMQuantity *)evaluateQuantity:(SMQuantity *)firstQuantity withQuantity:(SMQuantity *)secondQuantity usingOperator:(NSString *)operatorName
 {
     SMQuantity *result = [[SMQuantity alloc] init];
     result.unit = [[SMDerivedUnit alloc] init];

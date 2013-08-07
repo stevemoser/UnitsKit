@@ -56,6 +56,6 @@
 
 - (SMBaseUnit *)baseUnitFromBaseUnitIdentifier:(NSString *)baseUnitIdentifier;
 
-- (SMQuantity *)evaluateQuantity:(SMQuantity *)firstQuantity withQuanity:(SMQuantity *)secondQuantity usingOperator:(NSString *)operatorName;
+- (SMQuantity *)evaluateQuantity:(SMQuantity *)firstQuantity withQuantity:(SMQuantity *)secondQuantity usingOperator:(NSString *)operatorName;
 - (SMQuantity *)convertQuantity:(SMQuantity *)sourceQuantity usingDerivedUnit:(SMDerivedUnit *)targetUnit;
 @end

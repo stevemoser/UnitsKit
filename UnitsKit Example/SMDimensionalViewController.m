@@ -104,19 +104,19 @@
     //add
     [self.firstAdditionTableViewCell.textLabel setText:[NSString stringWithFormat:@"%@ and %@",[quantityFormatter stringFromQuantity:oneMeter],[quantityFormatter stringFromQuantity:fiveYards]]];
         
-    [self.secondAdditionTableViewCell.textLabel setText:[quantityFormatter stringFromQuantity:[quantityEvaluator evaluateQuantity:oneMeter withQuanity:fiveYards usingOperator:@"add"]]];
+    [self.secondAdditionTableViewCell.textLabel setText:[quantityFormatter stringFromQuantity:[quantityEvaluator evaluateQuantity:oneMeter withQuantity:fiveYards usingOperator:@"add"]]];
     [self.secondAdditionTableViewCell.detailTextLabel setText:@"Addition"];
     
-    [self.thirdAdditionTableViewCell.textLabel setText:[quantityFormatter stringFromQuantity:[quantityEvaluator evaluateQuantity:oneMeter withQuanity:fiveYards usingOperator:@"subtract"]]];
+    [self.thirdAdditionTableViewCell.textLabel setText:[quantityFormatter stringFromQuantity:[quantityEvaluator evaluateQuantity:oneMeter withQuantity:fiveYards usingOperator:@"subtract"]]];
     [self.thirdAdditionTableViewCell.detailTextLabel setText:@"Subtraction"];
     
     //multiply
     [self.firstMultiplicationTableViewCell.textLabel setText:[NSString stringWithFormat:@"%@ and %@",[quantityFormatter stringFromQuantity:oneMeter],[quantityFormatter stringFromQuantity:oneNewton]]];
     
-    [self.secondMultiplicationTableViewCell.textLabel setText:[quantityFormatter stringFromQuantity:[quantityEvaluator evaluateQuantity:oneMeter withQuanity:oneNewton usingOperator:@"multiply"]]];
+    [self.secondMultiplicationTableViewCell.textLabel setText:[quantityFormatter stringFromQuantity:[quantityEvaluator evaluateQuantity:oneMeter withQuantity:oneNewton usingOperator:@"multiply"]]];
     [self.secondMultiplicationTableViewCell.detailTextLabel setText:@"Multiplication"];
     
-    [self.thirdMultiplicationTableViewCell.textLabel setText:[quantityFormatter stringFromQuantity:[quantityEvaluator evaluateQuantity:oneMeter withQuanity:oneNewton usingOperator:@"divide"]]];
+    [self.thirdMultiplicationTableViewCell.textLabel setText:[quantityFormatter stringFromQuantity:[quantityEvaluator evaluateQuantity:oneMeter withQuantity:oneNewton usingOperator:@"divide"]]];
     [self.thirdMultiplicationTableViewCell.detailTextLabel setText:@"Division"];
     
     //compard
