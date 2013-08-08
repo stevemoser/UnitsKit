@@ -20,7 +20,7 @@ SMQuantity *oneMeter = [[SMQuantity alloc] init];
 // Display in either symbols or names
 [quantityFormatter stringFromQuantity:oneMeter] // 1 m
 [quantityFormatter setDisplaysInTermsOfSymbols:NO];
-quantityFormatter stringFromQuantity:oneMeter]; //1 meter
+[quantityFormatter stringFromQuantity:oneMeter]; //1 meter
 
 // Add or multiply
 [quantityEvaluator evaluateQuantity:oneMeter withQuantity: oneMeter usingOperator:@"add"]; // 2 m
