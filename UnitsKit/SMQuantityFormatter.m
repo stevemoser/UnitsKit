@@ -372,18 +372,6 @@
     return [NSString stringWithFormat:NSLocalizedStringWithDefaultValue(@"Unit Format String", nil, [NSBundle mainBundle], @"%@ %@", @"#{Value} #{Unit}"), [_numberFormatter stringFromNumber:[NSNumber numberWithDouble:doubleValue]], unitStringsWithDimensions];
 }
 
-//- (NSString *)stringFromNumber:(NSNumber *)number
-//                        ofUnit:(TTTUnitOfInformation)unit
-//{
-//    return [self stringFromNumberOfBits:[NSNumber numberWithInteger:(TTTNumberOfBitsInUnit(unit) * [number integerValue])]];
-//}
-//
-//- (NSString *)stringFromNumber:(NSNumber *)number
-//                        ofUnit:(TTTUnitOfInformation)unit
-//                    withPrefix:(TTTUnitPrefix)prefix
-//{
-//    return [self stringFromNumber:[NSNumber numberWithDouble:([self scaleFactorForPrefix:prefix] * [number integerValue])] ofUnit:unit];
-//}
 
 #pragma mark - NSCoding
 
