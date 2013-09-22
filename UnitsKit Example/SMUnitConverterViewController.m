@@ -46,6 +46,11 @@
 @property (weak, nonatomic) IBOutlet UITableViewCell *firstForceTableViewCell;
 @property (weak, nonatomic) IBOutlet UITableViewCell *secondForceTableViewCell;
 @property (weak, nonatomic) IBOutlet UITableViewCell *thirdForceTableViewCell;
+
+@property (weak, nonatomic) IBOutlet UITableViewCell *firstVolumeTableViewCell;
+@property (weak, nonatomic) IBOutlet UITableViewCell *secondVolumeTableViewCell;
+@property (weak, nonatomic) IBOutlet UITableViewCell *thirdVolumeTableViewCell;
+
 @end
 
 @implementation SMUnitConverterViewController
@@ -97,7 +102,18 @@
     [self.firstForceTableViewCell.textLabel setText:[quantityFormatter stringFromQuantity:threeNewtons]];
     SMQuantity *inPoundals = [quantityEvaluator convertQuantity:threeNewtons usingDerivedUnit:[quantityEvaluator derivedUnitFromString:@"poundal"]];
     [self.secondForceTableViewCell.textLabel setText:[quantityFormatter stringFromQuantity:inPoundals]];
+    SMQuantity *inPoundsFource = [quantityEvaluator convertQuantity:threeNewtons usingDerivedUnit:[quantityEvaluator derivedUnitFromString:@"pound force"]];
+    [self.thirdForceTableViewCell.textLabel setText:[quantityFormatter stringFromQuantity:inPoundsFource]];
     
+    SMQuantity *threeLiters = [[SMQuantity alloc] init];
+    [threeLiters setValue:@3];
+    [threeLiters setUnit:[quantityEvaluator derivedUnitFromString:@"liter"]];
+    
+    [self.firstVolumeTableViewCell.textLabel setText:[quantityFormatter stringFromQuantity:threeLiters]];
+    SMQuantity *inPints = [quantityEvaluator convertQuantity:threeLiters usingDerivedUnit:[quantityEvaluator derivedUnitFromString:@"pint"]];
+    [self.secondVolumeTableViewCell.textLabel setText:[quantityFormatter stringFromQuantity:inPints]];
+    SMQuantity *inQuarts = [quantityEvaluator convertQuantity:threeLiters usingDerivedUnit:[quantityEvaluator derivedUnitFromString:@"quart"]];
+    [self.thirdVolumeTableViewCell.textLabel setText:[quantityFormatter stringFromQuantity:inQuarts]];
     
 
 

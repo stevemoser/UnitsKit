@@ -259,9 +259,24 @@
 - (NSString *)stringFromQuantity:(SMQuantity *)quantity
 {
     NSString *unitStringsWithDimensions = nil;
-    double doubleValue = [quantity.value doubleValue];
     
-    //SMQuantityEvaluator *evaluator = [SMQuantityEvaluator sharedQuantityEvaluator];
+    SMQuantityEvaluator *evaluator = [SMQuantityEvaluator sharedQuantityEvaluator];
+    if (![evaluator baseUnitFromString:quantity.unit.name]) { //if not a base unit
+        if (quantity.unit.symbol) {
+            if (self.displaysInTermsOfSymbols) {
+                unitStringsWithDimensions = quantity.unit.symbol;
+            } else {
+                unitStringsWithDimensions = quantity.unit.name;
+            }
+            double doubleValue = [quantity.value doubleValue];
+            return [NSString stringWithFormat:NSLocalizedStringWithDefaultValue(@"Unit Format String", nil, [NSBundle mainBundle], @"%@ %@", @"#{Value} #{Unit}"), [_numberFormatter stringFromNumber:[NSNumber numberWithDouble:doubleValue]], unitStringsWithDimensions];
+
+        }
+        else if (![quantity.unit isEqual:quantity.unit.fundamental]) {
+            quantity = [evaluator convertQuantity:quantity usingDerivedUnit:quantity.unit.fundamental];
+            
+        }
+    }
     
     //TODO: support ordering of units i.e. mass length time A temp amount light, negative exponents last, proper names first
     NSArray *sortedbaseUnits = [quantity.unit.baseUnitsWithDimensionExponents keysSortedByValueUsingComparator:^NSComparisonResult(id dimension1, id dimension2) {
@@ -275,6 +290,7 @@
             return NSOrderedSame;
     }];
     
+    double doubleValue = [quantity.value doubleValue];
     NSMutableArray *unitStringsWithPositiveDimensionsArray = [[NSMutableArray alloc] init];
     NSMutableArray *unitStringsWithNegativeDimensionsArray = [[NSMutableArray alloc] init];
 
