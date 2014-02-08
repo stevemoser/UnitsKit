@@ -48,8 +48,10 @@
     SMQuantityEvaluator *quantityEvaluator = [SMQuantityEvaluator sharedQuantityEvaluator];
     
     SMQuantity *threeNewtons = [[SMQuantity alloc] init];
+    SMDerivedUnit *newtons = [[SMDerivedUnit alloc] init];
+    newtons.baseUnitsWithDimensionExponents = @{(id <NSCopying>)[quantityEvaluator baseUnitFromString:@"meter"]:@(1),(id <NSCopying>)[quantityEvaluator baseUnitFromString:@"second"]:@(-2),(id <NSCopying>)[quantityEvaluator baseUnitFromString:@"kilogram"]:@1};
+    [threeNewtons setUnit:newtons];
     [threeNewtons setValue:@3];
-    [threeNewtons setUnit:[quantityEvaluator derivedUnitFromString:@"newton"]];
     
     [self.symbolsOneTableViewCell.textLabel setText:[quantityFormatter stringFromQuantity:threeNewtons]];
     
