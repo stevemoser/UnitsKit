@@ -31,6 +31,13 @@
     [threeMetersSquared setUnit:meterSquared];
     [threeMetersSquared setValue:@3];
     
+    SMQuantity *threeLiters = [[SMQuantity alloc] init];
+    [threeLiters setValue:@3];
+    [threeLiters setUnit:[quantityEvaluator derivedUnitFromString:@"liter"]];
+    
+    threeMetersSquaredInPints = [quantityEvaluator convertQuantity:threeLiters usingDerivedUnit:[quantityEvaluator derivedUnitFromString:@"pint"]];
+    threeMetersSquaredInQuarts = [quantityEvaluator convertQuantity:threeLiters usingDerivedUnit:[quantityEvaluator derivedUnitFromString:@"quart"]];
+    
     fourPerMetersCubed = [[SMQuantity alloc] init];
     SMDerivedUnit *reciprocalMeterCubed = [[SMDerivedUnit alloc] init];
     reciprocalMeterCubed.baseUnitsWithDimensionExponents = @{(id <NSCopying>)[quantityEvaluator baseUnitFromString:@"meter"]:@(-3)};
@@ -176,8 +183,6 @@
     
 }
 
-
-
 - (void)testUnitsWithOnePositiveAndWithTwoNegativeExponents
 {
     [quantityFormatter setDisplaysInTermsOfSymbols:YES];
@@ -189,6 +194,13 @@
     [quantityFormatter setDisplaysInTermsOfSymbols:NO];
     STAssertEqualObjects([quantityFormatter stringFromQuantity:nineKilogramsToTheFifthPerMeterToTheSixthSecondsToTheSeventh], @"9 kilograms to the fifth per meter to the sixth second to the seventh", @"should be 9 kilograms to the fifth per meter to the sixth second to the seventh");
     
+}
+
+- (void)testIntermediateUnitsShouldNotBeShownAfterConversion
+{
+    [quantityFormatter setDisplaysInTermsOfSymbols:YES];
+    STAssertEqualObjects([quantityFormatter stringFromQuantity:threeMetersSquaredInPints], @"6.34 pt", @"should be 6.34 pt");
+    STAssertEqualObjects([quantityFormatter stringFromQuantity:threeMetersSquaredInQuarts], @"3.17 qt", @"should be 3.17 qt");
 }
 
 @end

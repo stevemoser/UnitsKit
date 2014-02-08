@@ -272,7 +272,7 @@
             return [NSString stringWithFormat:NSLocalizedStringWithDefaultValue(@"Unit Format String", nil, [NSBundle mainBundle], @"%@ %@", @"#{Value} #{Unit}"), [_numberFormatter stringFromNumber:[NSNumber numberWithDouble:doubleValue]], unitStringsWithDimensions];
 
         }
-        else if (![quantity.unit isEqual:quantity.unit.fundamental]) {
+        else if (![quantity.unit isEqual:quantity.unit.fundamental] && quantity.unit.fundamental != nil) {
             quantity = [evaluator convertQuantity:quantity usingDerivedUnit:quantity.unit.fundamental];
             
         }

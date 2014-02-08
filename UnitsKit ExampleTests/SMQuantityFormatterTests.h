@@ -20,6 +20,8 @@
     SMQuantity *oneMeter;
     SMQuantity *twoMeters;
     SMQuantity *threeMetersSquared;
+    SMQuantity *threeMetersSquaredInPints;
+    SMQuantity *threeMetersSquaredInQuarts;
     SMQuantity *fourPerMetersCubed;
     SMQuantity *sixMetersSquaredPerKilogramCubed;
     SMQuantity *sevenMeterCubedKilogramsToTheFourth;
