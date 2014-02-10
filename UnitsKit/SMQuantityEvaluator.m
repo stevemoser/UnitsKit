@@ -938,7 +938,6 @@ static SMQuantityEvaluator * _sharedEvaluator = nil;
                 [resultBaseUnitsWithDimensionExponents setObject:dimensionExponent forKey:baseUnit];
             }
         }
-        
         [result.unit setBaseUnitsWithDimensionExponents:resultBaseUnitsWithDimensionExponents];
         return result;
     }
@@ -958,65 +957,46 @@ static SMQuantityEvaluator * _sharedEvaluator = nil;
         
         [result.unit setBaseUnitsWithDimensionExponents:resultBaseUnitsWithDimensionExponents];
         return result;
-
     }
     
     
     NSMutableDictionary *resultBaseUnitsWithDimensionExponents = [[NSMutableDictionary alloc] init];
     NSMutableDictionary *secondQuantityBaseUnitsWithDimensionExponentsMinusFirstQuantityBaseUnitsWithDimensionExponents = [secondQuantity.unit.baseUnitsWithDimensionExponents mutableCopy];
-    NSDictionary *firstDimensionsWithBaseUnits = [firstQuantity.unit dimensionsWithBaseUnits];
     NSDictionary *secondDimensionsWithBaseUnits = [secondQuantity.unit dimensionsWithBaseUnits];
 
+    NSArray *baseUnitsInBothFirstAndSecondQuantities = [firstQuantity.unit.baseUnitsWithDimensionExponents.allKeys filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"SELF.dimension IN %@.dimension", secondQuantity.unit.baseUnitsWithDimensionExponents.allKeys]];
     
-    for (SMBaseUnit *firstBaseUnit in firstQuantity.unit.baseUnitsWithDimensionExponents) {
+    for (SMBaseUnit *firstBaseUnit in baseUnitsInBothFirstAndSecondQuantities) {
         NSNumber *firstDimensionExponent = firstQuantity.unit.baseUnitsWithDimensionExponents[firstBaseUnit];
-
         SMBaseUnit *matchingSecondBaseUnit = secondDimensionsWithBaseUnits[firstBaseUnit.dimension];
-        if (matchingSecondBaseUnit) {
-            NSNumber *convertedValue = [self valueByConvertingBaseUnit:matchingSecondBaseUnit toBaseUnit:firstBaseUnit withValue:secondQuantity.value]; //change to fundamental maybe
-            if (convertedValue) {
-                [secondQuantity setValue:convertedValue];
-            } else {
-                return nil;
-            }
-            
-            NSNumber *secondDimensionExponent = secondQuantity.unit.baseUnitsWithDimensionExponents[matchingSecondBaseUnit];
-            NSNumber *resultDimensionExponent = [self evaluateDimension:firstDimensionExponent withDimension:secondDimensionExponent usingOperator:operatorName];
-            if (resultDimensionExponent) { //could be zero in which case nil is returned from evaluateDimension
-                [resultBaseUnitsWithDimensionExponents setObject:resultDimensionExponent forKey:firstBaseUnit]; //change to fundamental when heterogenous units are supported
-            }
-            [secondQuantityBaseUnitsWithDimensionExponentsMinusFirstQuantityBaseUnitsWithDimensionExponents removeObjectForKey:matchingSecondBaseUnit];
-            
+
+        NSNumber *convertedValue = [self valueByConvertingBaseUnit:matchingSecondBaseUnit toBaseUnit:firstBaseUnit withValue:secondQuantity.value]; //change to fundamental maybe
+        if (convertedValue) {
+            [secondQuantity setValue:convertedValue];
         } else {
-            [resultBaseUnitsWithDimensionExponents setObject:firstDimensionExponent forKey:firstBaseUnit];
+            return nil;
         }
+        
+        NSNumber *secondDimensionExponent = secondQuantity.unit.baseUnitsWithDimensionExponents[matchingSecondBaseUnit];
+        NSNumber *resultDimensionExponent = [self evaluateDimension:firstDimensionExponent withDimension:secondDimensionExponent usingOperator:operatorName];
+        if (resultDimensionExponent) { //could be zero in which case nil is returned from evaluateDimension
+            [resultBaseUnitsWithDimensionExponents setObject:resultDimensionExponent forKey:firstBaseUnit]; //change to fundamental when heterogenous units are supported
+        }
+        [secondQuantityBaseUnitsWithDimensionExponentsMinusFirstQuantityBaseUnitsWithDimensionExponents removeObjectForKey:matchingSecondBaseUnit];
     }
     
-    for (SMBaseUnit *secondBaseUnit in secondQuantityBaseUnitsWithDimensionExponentsMinusFirstQuantityBaseUnitsWithDimensionExponents) {
-        NSNumber *secondDimensionExponent = secondQuantity.unit.baseUnitsWithDimensionExponents[secondBaseUnit];
-        
-        
-        SMBaseUnit *matchingFirstBaseUnit = firstDimensionsWithBaseUnits[secondBaseUnit.dimension];
-        if (matchingFirstBaseUnit) {
-            NSNumber *convertedValue = [self valueByConvertingBaseUnit:secondBaseUnit toBaseUnit:matchingFirstBaseUnit withValue:secondQuantity.value];
-            if (convertedValue) {
-                [secondQuantity setValue:convertedValue];
-            } else {
-                return nil;
-            }
-            
-            NSNumber *firstDimensionExponent = firstQuantity.unit.baseUnitsWithDimensionExponents[matchingFirstBaseUnit];
-            NSNumber *resultDimensionExponent = [self evaluateDimension:firstDimensionExponent withDimension:secondDimensionExponent usingOperator:operatorName];
-            if (resultDimensionExponent) { //could be zero in which case nil is returned from evaluateDimension
-                [resultBaseUnitsWithDimensionExponents setObject:resultDimensionExponent forKey:matchingFirstBaseUnit];
-            }
-        } else {
-            secondDimensionExponent = [self evaluateDimension:@0 withDimension:secondDimensionExponent usingOperator:operatorName];
-            [resultBaseUnitsWithDimensionExponents setObject:secondDimensionExponent forKey:secondBaseUnit];
-        }
-        //ELSE we know it doesn't exitst in first array
-        //TODO: convert to first system if first is all in the same system
+    NSArray *baseUnitsInFirstAndNotInSecondQuantities = [firstQuantity.unit.baseUnitsWithDimensionExponents.allKeys filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"NOT (SELF.dimension IN %@.dimension)", secondQuantity.unit.baseUnitsWithDimensionExponents.allKeys]];
+    for (SMBaseUnit *firstBaseUnit in baseUnitsInFirstAndNotInSecondQuantities) {
+        NSNumber *firstDimensionExponent = firstQuantity.unit.baseUnitsWithDimensionExponents[firstBaseUnit];
+        [resultBaseUnitsWithDimensionExponents setObject:firstDimensionExponent forKey:firstBaseUnit];
+    }
     
+    NSArray *baseUnitsInSecondAndNotInFirstQuantities = [secondQuantity.unit.baseUnitsWithDimensionExponents.allKeys filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"NOT (SELF.dimension IN %@.dimension)", firstQuantity.unit.baseUnitsWithDimensionExponents.allKeys]];
+
+    for (SMBaseUnit *secondBaseUnit in baseUnitsInSecondAndNotInFirstQuantities) {
+        NSNumber *secondDimensionExponent = secondQuantity.unit.baseUnitsWithDimensionExponents[secondBaseUnit];
+        secondDimensionExponent = [self evaluateDimension:@0 withDimension:secondDimensionExponent usingOperator:operatorName];
+        [resultBaseUnitsWithDimensionExponents setObject:secondDimensionExponent forKey:secondBaseUnit];
     }
     
     [result setValue:[self evaluateNumber:firstQuantity.value withNumber:secondQuantity.value usingOperator:operatorName]];
