@@ -1,5 +1,7 @@
 # UnitsKit
 
+Note: UnitsKit is not under active development.
+
 **Evaluates and Formats Units of Measurement**
 
 `UnitsKit` is a based around the `SMQuantity` subclass which contains a value and a unit. A quantity can be constructed using a value wrapped in a `NSNumber` and a `NSString` the represents the name or symbol of a unit. Quantities can be combined by using an operator such as `add`,`subtract`,`multiply`, or `divide`.  Quantities can also be converted to other units. Finally Quantities can be formatted as an `NSString` by specifying how it should be displayed with options like names or symbols. 
