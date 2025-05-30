@@ -33,15 +33,15 @@
     [threeMeters setUnit:[quantityEvaluator derivedUnitFromString:@"meter"]];
     
     fourMeters = [[SMQuantity alloc] init];
-    [fourMeters setValue:@1];
+    [fourMeters setValue:@4];
     [fourMeters setUnit:[quantityEvaluator derivedUnitFromString:@"meter"]];
-    
+
     fiveMeters = [[SMQuantity alloc] init];
-    [fiveMeters setValue:@1];
+    [fiveMeters setValue:@5];
     [fiveMeters setUnit:[quantityEvaluator derivedUnitFromString:@"meter"]];
-    
+
     sixMeters = [[SMQuantity alloc] init];
-    [sixMeters setValue:@1];
+    [sixMeters setValue:@6];
     [sixMeters setUnit:[quantityEvaluator derivedUnitFromString:@"meter"]];
     
     
@@ -73,7 +73,7 @@
     
     SMQuantity *testResult = [quantityEvaluator evaluateQuantity:three withQuantity:three usingOperator:@"add"];
     
-    STAssertTrue([testResult isEqualToQuantity:six], @"should me 6", nil);
+    STAssertTrue([testResult isEqualToQuantity:six], @"should be 6", nil);
     
     
 }
@@ -85,7 +85,7 @@
     
     SMQuantity *testResult = [quantityEvaluator evaluateQuantity:two withQuantity:threeMeters usingOperator:@"add"];
     
-    STAssertNil(testResult, @"should me nil", nil);
+    STAssertNil(testResult, @"should be nil", nil);
 }
 
 - (void)testAddDifferentFundamentalUnit
@@ -94,7 +94,7 @@
     
     SMQuantity *testResult = [quantityEvaluator evaluateQuantity:oneMeter withQuantity:oneKilogram usingOperator:@"add"];
     
-    STAssertNil(testResult, @"should me nil", nil);
+    STAssertNil(testResult, @"should be nil", nil);
 }
 
 - (void)testAddFundamentalUnitWithScaledUnit
@@ -106,7 +106,7 @@
     
     SMQuantity *testResult = [quantityEvaluator evaluateQuantity:twoMeters withQuantity:oneKilometer usingOperator:@"add"];
     
-    STAssertTrue([testResult isEqualToQuantity:oneThousandTwoMeters], @"should me 1002m", nil);
+    STAssertTrue([testResult isEqualToQuantity:oneThousandTwoMeters], @"should be 1002m", nil);
     
 }
 
@@ -118,7 +118,7 @@
     
     SMQuantity *testResult = [quantityEvaluator evaluateQuantity:oneKilometer withQuantity:oneMillimeter usingOperator:@"add"];
     
-    STAssertTrue([testResult isEqualToQuantity:oneThousandAndOneThousandthMeter], @"should me 1.00001km", nil);
+    STAssertTrue([testResult isEqualToQuantity:oneThousandAndOneThousandthMeter], @"should be 1.00001km", nil);
     
 }
 
@@ -136,7 +136,7 @@
     
     SMQuantity *testResult = [quantityEvaluator evaluateQuantity:oneMeter withQuantity:fiveYards usingOperator:@"add"];
     
-    STAssertTrue([testResult isEqualToQuantity:fiveAndAHalfishMeters], @"should me 5.4864m^2", nil);
+    STAssertTrue([testResult isEqualToQuantity:fiveAndAHalfishMeters], @"should be 5.4864m^2", nil);
 }
 
 - (void)testMultiplyNondimensional
@@ -149,7 +149,7 @@
     
     SMQuantity *testResult = [quantityEvaluator evaluateQuantity:three withQuantity:three usingOperator:@"multiply"];
     
-    STAssertTrue([testResult isEqualToQuantity:nine], @"should me 9", nil);
+    STAssertTrue([testResult isEqualToQuantity:nine], @"should be 9", nil);
 }
 
 - (void)testMultiplyNondimensionalWithDimensional
@@ -167,7 +167,7 @@
     
     SMQuantity *testResult = [quantityEvaluator evaluateQuantity:two withQuantity:threeMeter usingOperator:@"multiply"];
     
-    STAssertTrue([testResult isEqualToQuantity:sixThousandMeters], @"should me 6m", nil);
+    STAssertTrue([testResult isEqualToQuantity:sixThousandMeters], @"should be 6m", nil);
     
 }
 
@@ -185,7 +185,7 @@
     
     SMQuantity *testResult = [quantityEvaluator evaluateQuantity:twoMeter withQuantity:twoMeter usingOperator:@"multiply"];
     
-    STAssertTrue([testResult isEqualToQuantity:fourMeterSquared], @"should me 4m^2", nil);
+    STAssertTrue([testResult isEqualToQuantity:fourMeterSquared], @"should be 4m^2", nil);
 }
 
 - (void)testMultiplyDifferentFundamentalUnit
@@ -206,7 +206,7 @@
     
     SMQuantity *testResult = [quantityEvaluator evaluateQuantity:twoMeter withQuantity:threeKilogram usingOperator:@"multiply"];
     
-    STAssertTrue([testResult isEqualToQuantity:fourMeterKilograms], @"should me 6m^2", nil);
+    STAssertTrue([testResult isEqualToQuantity:fourMeterKilograms], @"should be 6m^2", nil);
 }
 
 
@@ -229,7 +229,7 @@
     
     SMQuantity *testResult = [quantityEvaluator evaluateQuantity:twoMeter withQuantity:threeKilometers usingOperator:@"multiply"];
     
-    STAssertTrue([testResult isEqualToQuantity:sixThousandMetersSquared], @"should me 6000m^2", nil);
+    STAssertTrue([testResult isEqualToQuantity:sixThousandMetersSquared], @"should be 6000m^2", nil);
     
 }
 
@@ -251,7 +251,7 @@
     
     SMQuantity *testResult = [quantityEvaluator evaluateQuantity:twoMillimeters withQuantity:threeKilometers usingOperator:@"multiply"];
     
-    STAssertTrue([testResult isEqualToQuantity:sixMetersSquared], @"should me 6000mm^2", nil);
+    STAssertTrue([testResult isEqualToQuantity:sixMetersSquared], @"should be 6000mm^2", nil);
     
     
 }
@@ -274,7 +274,7 @@
     
     SMQuantity *testResult = [quantityEvaluator evaluateQuantity:twoMeter withQuantity:threeYards usingOperator:@"multiply"];
     
-    STAssertTrue([testResult isEqualToQuantity:fiveishMetersSquared], @"should me 5.4864m^2", nil);
+    STAssertTrue([testResult isEqualToQuantity:fiveishMetersSquared], @"should be 5.4864m^2", nil);
     
     
 }
@@ -289,7 +289,7 @@
     
     SMQuantity *testResult = [quantityEvaluator evaluateQuantity:three withQuantity:three usingOperator:@"divide"];
     
-    STAssertTrue([testResult isEqualToQuantity:one], @"should me 9m", nil);
+    STAssertTrue([testResult isEqualToQuantity:one], @"should be 9m", nil);
     
 }
 
@@ -310,7 +310,7 @@
     
     SMQuantity *testResult = [quantityEvaluator evaluateQuantity:six withQuantity:threeMeter usingOperator:@"divide"];
     
-    STAssertTrue([testResult isEqualToQuantity:twoPerMeter], @"should me 2m^-1", nil);
+    STAssertTrue([testResult isEqualToQuantity:twoPerMeter], @"should be 2m^-1", nil);
     
     
 }
@@ -330,7 +330,7 @@
     
     SMQuantity *testResult = [quantityEvaluator evaluateQuantity:threeMeter withQuantity:two usingOperator:@"divide"];
     
-    STAssertTrue([testResult isEqualToQuantity:twoMeterSquared], @"should me 2m", nil);
+    STAssertTrue([testResult isEqualToQuantity:twoMeterSquared], @"should be 2m", nil);
     
 }
 
@@ -342,7 +342,7 @@
     }];
     NSArray *sortedQuantities = @[oneMeter,twoMeters,threeMeters];
     
-    STAssertTrue([sortedQuantitesUsingCompare isEqualToArray:sortedQuantities], @"should me [1m,2m,3m]", nil);
+    STAssertTrue([sortedQuantitesUsingCompare isEqualToArray:sortedQuantities], @"should be [1m,2m,3m]", nil);
 
 }
 
