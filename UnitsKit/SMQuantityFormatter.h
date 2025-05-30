@@ -39,11 +39,11 @@ typedef enum {
 /**
  Instances of `SMQuantityFormatter` create localized string representations of quantities.
  
- Note that in these examples if a unit exponent is not preceded by a carrot (^) then it should appear as a superscript
+ Note that in these examples if a unit exponent is not preceded by a caret (^) then it should appear as a superscript
  
- For example, the the value 6 netwons could be formatted as "6 N" or "6 newtons" or "6 kilogram meters per second squared" or "6 kg·m·s−2" or "6 kg·m/s2" or "6 kg m s-2" or "6 kg·m·s^−2".
+ For example, the value 6 newtons could be formatted as "6 N" or "6 newtons" or "6 kilogram meters per second squared" or "6 kg·m·s−2" or "6 kg·m/s2" or "6 kg m s-2" or "6 kg·m·s^−2".
  
- @discussion By default, `SMQuantityFormatter` uses CGPM rules to display unit symbols (6 kg·m·s−2). See http://en.wikipedia.org/wiki/International_System_of_Units#Writing_unit_symbols_and_the_values_of_quantities for more informaion about displaying quantites. Additionally.
+ @discussion By default, `SMQuantityFormatter` uses CGPM rules to display unit symbols (6 kg·m·s−2). See http://en.wikipedia.org/wiki/International_System_of_Units#Writing_unit_symbols_and_the_values_of_quantities for more information about displaying quantities. Additionally.
  */
 @interface SMQuantityFormatter : NSFormatter <NSCoding>
 
@@ -68,7 +68,7 @@ typedef enum {
 @property (nonatomic, assign) BOOL usesSolidusForSymbolsForDisplay;
 
 /**
- Specifies whether to use hyphens for display of derived unit names. `SMSymbolSeparatorInterpunctStyle` by default.
+ Specifies how to separate unit symbols when displaying products of units. `SMSymbolSeparatorInterpunctStyle` by default.
  */
 @property (nonatomic, assign) SMQuantityFormatterSymbolSeparator symbolSeparator;
 
